@@ -2,12 +2,12 @@ import "package:flutter/material.dart";
 import "package:lottie/lottie.dart";
 import 'package:go_router/go_router.dart';
 import "features/dashboard/dashboard_screen.dart";
+
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   void _launchOperation(BuildContext context) {
     context.go('/dashboard');
-        },
-      ),
-    );
   }
 
   @override
@@ -254,40 +254,88 @@ class MadeForFamiliesSection extends StatelessWidget {
 
 class StartTodaySection extends StatelessWidget {
   final VoidCallback onLaunch;
-  StartTodaySection({required this.onLaunch});
+  const StartTodaySection({required this.onLaunch});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 24, horizontal: 32),
+      padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 32),
       child: Column(
         children: [
           Text(
-            "Start Today. No Manuals Required.",
+            'Start Today. No Manuals Required.',
             style: theme.textTheme.headlineMedium,
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 16),
-          Center(
-            child: Column(
-              children: [
-                ListTile(
-                  leading: Icon(Icons.check_circle, color: Colors.green),
-                  title: Text("Free to try"),
-                ),
-                ListTile(
-                  leading: Icon(Icons.check_circle, color: Colors.green),
-                  title: Text("Works on all devices"),
-                ),
-                ListTile(
-                  leading: Icon(Icons.check_circle, color: Colors.green),
-                  title: Text("Easy Google login"),
-                ),
-              ],
+          const SizedBox(height: 16),
+          Column(
+            children: const [
+              ListTile(
+                leading: Icon(Icons.check_circle, color: Colors.green),
+                title: Text('Free to try'),
+              ),
+              ListTile(
+                leading: Icon(Icons.check_circle, color: Colors.green),
+                title: Text('Works on all devices'),
+              ),
+              ListTile(
+                leading: Icon(Icons.check_circle, color: Colors.green),
+                title: Text('Easy Google login'),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          Text(
+            'Big Dad Energy. Big Kid Fun. Zero Summer Slumps.',
+            style: theme.textTheme.bodyLarge!.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 20),
+          ElevatedButton.icon(
+            onPressed: onLaunch,
+            icon: const Icon(Icons.rocket_launch),
+            label: const Text('Launch Operation Summer'),
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(8)),
+              ),
             ),
           ),
-          SizedBox(height: 12),
-          Text(
-            "Big Dad Energy. Big Kid Fun. Zero Summer Slumps.",
-            style: theme.textTheme.bodyLarge!.copyWith(
+        ],
+      ),
+    );
+  }
+}
+
+class FooterSection extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 24),
+      child: Text(
+        '© 2025 Operation Summer',
+        style: theme.textTheme.bodyLarge,
+        textAlign: TextAlign.center,
+      ),
+    );
+  }
+}
+
+class _Feature {
+  final IconData icon;
+  final String title;
+  final String description;
+  final String lottie;
+
+  const _Feature({
+    required this.icon,
+    required this.title,
+    required this.description,
+    required this.lottie,
+  });
+}
