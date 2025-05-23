@@ -8,7 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: subosito/flutter-action@v2
-      with: { flutter-version: '3.22.0' }
+      with: { flutter-version: '3.32.0' }
     - run: flutter pub get -C app
     - run: flutter analyze -C app
     - run: flutter test -C app
