@@ -1,14 +1,32 @@
+# .github/workflows/flutter_ci.yml
 name: Flutter CI
+
 on:
   push:
     branches: [ main ]
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v4
-    - uses: subosito/flutter-action@v2
-      with: { flutter-version: '3.32.0' }
-    - run: flutter pub get -C app
-    - run: flutter analyze -C app
-    - run: flutter test -C app
+      - uses: actions/checkout@v4
+
+      # Install the requested Flutter SDK (includes Dart)
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.32.0'   # Dart 3.8 inside
+          channel: stable
+
+      # ─── Flutter package in app/ ───────────────────────────────────────────────
+      - name: Install Dart/Flutter deps
+        run: flutter pub get
+        working-directory: app
+
+      - name: Static analysis
+        run: flutter analyze
+        working-directory: app
+
+      - name: Run widget/unit tests
+        run: flutter test
+        working-directory: app
