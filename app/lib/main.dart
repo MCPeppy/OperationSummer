@@ -5,7 +5,7 @@ import 'package:lottie/lottie.dart';
 import 'home_page.dart';
 
 void main() {
-  runApp(const ProviderScope(child: OperationSummerApp()));
+  runApp(ProviderScope(child: OperationSummerApp()));
 }
 
 class OperationSummerApp extends ConsumerWidget {

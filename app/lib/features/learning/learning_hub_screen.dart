@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'worksheet_printer.dart';
 
 class LearningHubScreen extends StatelessWidget {
   const LearningHubScreen({super.key});
@@ -7,7 +8,12 @@ class LearningHubScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Learning Hub')),
-      body: const Center(child: Text('Learning content coming soon')),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: printSampleWorksheet,
+          child: const Text('Print Sample Worksheet'),
+        ),
+      ),
     );
   }
 }
