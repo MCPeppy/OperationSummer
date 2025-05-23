@@ -1,1 +1,1 @@
-{ "name": "print-daemon", "type": "module", "dependencies": { "firebase-admin": "^12.0.0", "node-fetch": "^3.5.0" } }
+{ "name": "print-daemon", "type": "module", "dependencies": { "firebase-admin": "^12.0.0" } }
