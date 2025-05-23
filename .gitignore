@@ -3,6 +3,7 @@
 .packages
 .pub/
 build/
+flutter-sdk/
 # Node
 functions/node_modules/
 print-daemon/node_modules/
